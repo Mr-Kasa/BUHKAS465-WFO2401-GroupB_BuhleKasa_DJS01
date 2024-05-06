@@ -8,15 +8,16 @@
 // Given Parameters
 const vel = 10000; // velocity (km/h)
 const acc = 3; // acceleration (m/s^2)
-const time = 1; // hours (1 hour)
+const time = {seconds : 3600,    //3600 seconds equal to 1 hour
+              hours : 1}; 
 const distance = 0; // distance (km)
 const fuel = 5000; // remaining fuel (kg)
 const fbr = 0.5; // fuel burn rate (kg/s)
+console.log(time.hours)
 
-
-const d2 = distance + (vel*time) //calcultes new distance
-const rf = fbr*time //calculates remaining fuel
-const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
+const d2 = distance + (vel*time.hours) //calcultes new distance
+const rf = fbr*time.seconds //calculates remaining fuel
+//const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
 calcNewVel = (vel, acc, time) => { 
