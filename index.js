@@ -20,10 +20,14 @@ const remainingFuel =Startingfuel - fuelBurnRate.kgPerHour*time.hours //calculat
 const secondVelocity = calculateNewVelocity(acceleration.kilometersPerHour, initialVelocity, time.hours) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-function calculateNewVelocity(acc, vel, time){ 
-
- return parseFloat(vel + (acc*time))
-  
+// Function to calculate new velocity
+function calculateNewVelocity(acc, vel, time) {
+  // Check if parameters are numbers
+  if (typeof acc !== 'number' || typeof vel !== 'number' || typeof time !== 'number') {
+      throw new Error('Invalid parameters. Acceleration, velocity, and time must be numbers.');
+  }
+  // Calculate and return new velocity
+  return parseFloat(vel + (acc * time));
 }
 
 console.log(`Corrected New Velocity: ${secondVelocity} km/h`);
